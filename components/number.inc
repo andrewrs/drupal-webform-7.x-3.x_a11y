@@ -295,7 +295,7 @@ function _webform_render_number($component, $value = NULL, $filter = TRUE) {
   }
 
   // Ensure #step starts with a zero if a decimal.
-  if (!is_int($element['#step'] * 1)) {
+  if (filter_var((float) $element['#step'], FILTER_VALIDATE_INT) === FALSE) {
     $decimals = strlen($element['#step']) - strrpos($element['#step'], '.') - 1;
     $element['#step'] = sprintf('%1.' . $decimals . 'F', $element['#step']);
   }
