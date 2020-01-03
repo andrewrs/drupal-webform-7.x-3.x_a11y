@@ -117,7 +117,10 @@ class webform_exporter_delimited extends webform_exporter {
   public $delimiter;
 
   /**
+   * Constructor.
    *
+   * @param array $options
+   *   An associative array of options.
    */
   public function webform_exporter_delimited($options) {
     $this->delimiter = isset($options['delimiter']) ? $options['delimiter'] : ',';
@@ -190,7 +193,10 @@ class webform_exporter_excel extends webform_exporter_delimited {
   public $delimiter;
 
   /**
+   * Constructor.
    *
+   * @param array $options
+   *   An associative array of options.
    */
   public function webform_exporter_excel($options) {
     $options['delimiter'] = '\t';
