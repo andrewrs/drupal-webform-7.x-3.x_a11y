@@ -122,12 +122,23 @@ class webform_exporter_delimited extends webform_exporter {
    * @param array $options
    *   An associative array of options.
    */
-  public function webform_exporter_delimited($options) {
+  public function __construct($options) {
     $this->delimiter = isset($options['delimiter']) ? $options['delimiter'] : ',';
     // Convert tabs.
     if ($this->delimiter == '\t') {
       $this->delimiter = "\t";
     }
+  }
+
+  /**
+   * PHP 4 constructor compatibility shim.
+   *
+   * @deprecated in 7.x-3.30 and is removed from 7.x-4.0. Use PHP 5 class
+   * instantiation instead.
+   * @see https://www.drupal.org/project/webform/issues/3011149
+   */
+  public function webform_exporter_delimited($options) {
+    self::__construct($options);
   }
 
   /**
@@ -198,9 +209,20 @@ class webform_exporter_excel extends webform_exporter_delimited {
    * @param array $options
    *   An associative array of options.
    */
-  public function webform_exporter_excel($options) {
+  public function __construct($options) {
     $options['delimiter'] = '\t';
-    parent::webform_exporter_delimited($options);
+    parent::__construct($options);
+  }
+
+  /**
+   * PHP 4 constructor compatibility shim.
+   *
+   * @deprecated in 7.x-3.30 and is removed from 7.x-4.0. Use PHP 5 class
+   * instantiation instead.
+   * @see https://www.drupal.org/project/webform/issues/3011149
+   */
+  public function webform_exporter_excel($options) {
+    self::__construct($options);
   }
 
   /**
