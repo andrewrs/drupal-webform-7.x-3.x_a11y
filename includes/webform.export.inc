@@ -204,10 +204,7 @@ class webform_exporter_excel extends webform_exporter_delimited {
   public $delimiter;
 
   /**
-   * Constructor.
-   *
-   * @param array $options
-   *   An associative array of options.
+   * {@inheritdoc}
    */
   public function __construct($options) {
     $options['delimiter'] = '\t';
