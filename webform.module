@@ -2770,7 +2770,12 @@ function theme_webform_element($variables) {
   }
   $prefix = isset($element['#field_prefix']) ? '<span class="field-prefix">' . _webform_filter_xss($element['#field_prefix']) . '</span> ' : '';
   $suffix = isset($element['#field_suffix']) ? ' <span class="field-suffix">' . _webform_filter_xss($element['#field_suffix']) . '</span>' : '';
-
+  // if #description is not empty add description id to describedby attribute 
+  if (!empty($element['#description'])) {
+    $description_id = $element['#id'] . '--description';
+    $element['#children'] = str_replace('aria-describedby="--WEBFORM-PLACEHOLDER--"', 'aria-describedby="' . $description_id . '"', $element['#children']);
+  }
+  
   switch ($element['#title_display']) {
     case 'inline':
     case 'before':
