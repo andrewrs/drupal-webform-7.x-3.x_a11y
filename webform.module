@@ -2797,7 +2797,7 @@ function theme_webform_element($variables) {
   }
 
   if (!empty($element['#description'])) {
-    $output .= ' <div class="description">' . $element['#description'] . "</div>\n";
+    $output .= ' <div id="' . $description_id . '" class="description">' . $element['#description'] . "</div>\n";
   }
 
   $output .= "</div>\n";
