@@ -2795,7 +2795,7 @@ function theme_webform_element($variables) {
       $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
       break;
   }
-
+  // Give description elements an ID
   if (!empty($element['#description'])) {
     $output .= ' <div id="' . $description_id . '" class="description">' . $element['#description'] . "</div>\n";
   }
